@@ -1,0 +1,37 @@
+/*
+ * You can add custom styles for your customer portal to this file. By default it tries
+ * to adjust fonts to your theme settings.
+ *
+ * If you'd like to override the entire stylesheet, you can disable the built-in one
+ * by removing `&use_built_in_stylesheets=1` from the `paywhirl-customer-portal-frame.liquid` snippet
+ */
+
+ 
+ 
+
+ @font-face {
+  font-family: Assistant;
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.shopifycdn.com/assistant/assistant_n4.bcd3d09dcb631dec5544b8fb7b154ff234a44630.woff2?&hmac=0a2e92d6956b1312ef7d59f4850549a6e43a908ccf24df47f07b0b4c6da5837d") format("woff2"),
+       url("https://fonts.shopifycdn.com/assistant/assistant_n4.a2d012304becc2a26f1ded1acc136fcab85c9afd.woff?&hmac=b9c5a10fbc7928e1a963472ba312c273b8be3a9845294066178386bf5c965c98") format("woff");
+}
+
+ 
+
+ 
+ 
+ 
+
+ :root {
+   --font-weight-body--bold: 700;
+   --font-weight-body--bolder: 700;
+
+   --font-stack-header: Assistant, sans-serif;
+   --font-style-header: normal;
+   --font-weight-header: 400;
+
+   --font-stack-body: sans-serif;
+   --font-style-body: normal;
+   --font-weight-body: normal;
+ }

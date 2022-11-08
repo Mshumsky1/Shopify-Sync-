@@ -1,0 +1,36 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" defer="defer"></script>
+
+<div style="width:300px; clear:both;">
+  <p>
+    <label for="date">Pick a delivery date:</label>
+    <input id="date" type="text" name="checkout[note_attributes][date]" value="Write your Date" />
+    <span style="display:block" class="instructions"> We do not deliver during the week-end.</span>
+  </p>
+</div>
+
+<script>
+  
+  (function($) {
+$(document).on("page:load page:change", function() {
+if (Shopify.Checkout.step == "payment_method");
+  window.onload = function() {
+      if (window.jQuery) {
+        let $ = window.jQuery;
+
+        $(function() {
+          $("#date").datepicker({
+          minDate: +1,
+          maxDate: '+2M',
+          beforeShowDay: $.datepicker.noWeekends;})
+        }
+
+          function(){
+            {% for attribute in checkout.attributes %}
+  <input type=hidden name="checkout[attributes][{{ attribute.first }}]" value="{{ attribute.last  }}">
+{% endfor %}
+          });
+      });
+    };
+  }}(Checkout.$);
+    
+</script>

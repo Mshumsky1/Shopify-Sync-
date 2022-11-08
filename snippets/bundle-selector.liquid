@@ -1,0 +1,21 @@
+
+<!-- what is bundle_collection and bundle collections. bundle_collection is variable but what about bundle_collections -->
+
+{% for bundle_collection in bundle_collections %} <!-- this means product.metafields.custom ---> 
+{% assign collection_id = bundle_collection %}
+
+<!-- how do we know what objects we can for loop-->
+  
+{% for collection in collections %}
+{% if collection.id == collection_id and collection.products_count > 0 %}
+<label for="{{collection.title}}">{{collection.title}}  </label>
+<select name="{{collection.title}}" id="{{collection.id}}">
+<option value="" selected>Please select</option>
+{% for product in collection.products%}  
+<!-- why is product.variants[0].id necessary? why can't we go directly to product.title?-->
+<option value="{{product.variants[0].id}}">{{product.title}}</option>
+{% endfor %}
+</select>
+{% endif %}
+{% endfor %}
+{% endfor %}

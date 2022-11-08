@@ -1,0 +1,30 @@
+
+
+<div>
+  <input type="checkbox" class="input-checkbox" id="agecheck" name="checkout[attributes][agecheck]"=>
+<label for="gift-message"> <span>I confirm that I am over 16 years old.*<br><br></span></label>
+</div>
+
+<script>
+ (function($) {
+$(document).on("page:load page:change", function() {
+if (Shopify.Checkout.step == "payment_method") {
+if($('#agecheck').is(':checked')) {
+return true;
+}
+else {
+alert("You must confirm that you are over 16 years old.");
+return false;
+  {% for attribute in checkout.attributes %}
+  <input type=hidden name="checkout[attributes][{{ attribute.first }}]" value="{{ attribute.last  }}">
+{% endfor %}
+}
+}
+});
+})
+(Checkout.$);
+
+
+  
+
+</script>
